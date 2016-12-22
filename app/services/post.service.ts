@@ -11,7 +11,7 @@ export class PostsService {
     }
 
     getPosts(){
-       return this.http.get("http://localhost/get.php")
+       return this.http.get("http://localhost/angular2/quickstart/server/get.php")
         .map(res => res.json());
     }
 
@@ -22,7 +22,7 @@ export class PostsService {
  // headers.append('Content-Type', 'application/x-www-form-urlencoded');
   console.log("In the service");
   return this.http
-    .post('http://localhost/add.php', body, { headers:  {
+    .post('http://localhost/angular2/quickstart/server/add.php', body, { headers:  {
         'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
     } })
     .map(response => response.json())
