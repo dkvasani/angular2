@@ -105,4 +105,6 @@ We recommend that you shut down one before starting another.*
 
 # Serve Code is in PHP
 create test database in mysql
+SQL Table : https://github.com/dkvasani/angular2/tree/master/server/sql
+Server Side PHP Script: https://github.com/dkvasani/angular2/tree/master/server
 
