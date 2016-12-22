@@ -15,6 +15,8 @@ export class UserComponent  {
   hobbies: string[];
   showHobby: boolean;
   posts: Post[];
+  blogpost: Blogpost[];
+  result: string[];
 
   constructor(private postService: PostsService){
       console.log("Hello from user Component");
@@ -28,7 +30,14 @@ export class UserComponent  {
     this.hobbies = [
         'Playing Chess', 'Watching News', 'Internet surfing'
     ];
-    this.showHobby = false; 
+    this.showHobby = false;
+
+    this.blogpost = {
+        id:0,
+        title: "",
+        body: ""
+    }; 
+    
   }
    ngOnInit() { this.getPosts(); }
 
@@ -44,6 +53,19 @@ export class UserComponent  {
                 this.posts = posts
             }
             );
+  }
+  addPost() {
+      console.log("Add call");
+      console.log(this.blogpost);
+     this.postService.addPost(this.blogpost).subscribe(
+              data => this.result = JSON.stringify(data),
+                 error => console.log("Error HTTP GET Service"), // in case of failure show this message
+                   () => console.log(this.result)//,
+                   
+            );
+     console.log("result");
+     this.posts.push(this.blogpost); 
+     console.log("dk" + this.result);
   }
 
  
@@ -71,6 +93,12 @@ interface address {
 }
 
 interface Post {
+    id: Number;
+    title: string;
+    body:string;
+}
+
+interface Blogpost{
     id: Number;
     title: string;
     body:string;

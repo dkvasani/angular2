@@ -1,7 +1,17 @@
 <h1>Hello {{name}} Welcome To angular 2 world</h1>'<p><strong>email:</strong> {{email}}</p>
   <p><strong>Address</strong>:{{address.street}} , {{address.city}}, {{address.state}}</p>
-  <button (click) = "toggleHooby()">{{showHobby ? "Hide hobbies" : "show Hobbies"}}</button> 
-  
+  <button (click) = "toggleHooby()">{{showHobby ? "Hide hobbies" : "show Hobbies"}}</button>
+
+  {{result}}
+<h3>Add Posts Form</h3>
+<form>
+    <label>Title: </label>
+    <input type="text" name="blogpost.title" [(ngModel)] ="blogpost.title"/><br/>
+    <label>Content: </label>
+    <input type="text" name="blogpost.body" [(ngModel)] ="blogpost.body"/><br/>
+    <button class="btn btn-success" (click)="addPost()">Add Post</button>
+
+</form>
   <h3> Form Data binding</h3>
   <form>
     <label>Name: </label>
@@ -20,6 +30,7 @@
   </form>
   <h3>Angular 2 Service Data</h3>
   <ul>
+      
   <div *ngFor="let item of posts; let i = index">
     <h3>{{i+1}} {{item.title}}</h3>
     <h6>{{i+1}} {{item.body}}</h6>
